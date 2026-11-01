@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Lovers Yum | Reservation Form</title>
+    <style>
+      :root {
+        --bg: #fffaf5;
+        --panel: #ffffff;
+        --primary: #b84a2e;
+        --primary-dark: #8d331d;
+        --accent: #f7c66b;
+        --text: #2d211d;
+        --muted: #756763;
+        --border: #f0dfd8;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #fff7f1 0%, #fffaf6 100%);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 48px auto;
+        padding: 24px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 20px 45px rgba(111, 60, 42, 0.08);
+        overflow: hidden;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #f4b35d, #e66f47 60%, #b84a2e);
+        color: white;
+        padding: 32px 32px 24px;
+      }
+
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .hero p {
+        margin: 0;
+        opacity: 0.95;
+        font-size: 1.07rem;
+      }
+
+      form {
+        padding: 32px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .full { grid-column: 1 / -1; }
+
+      label {
+        font-weight: 700;
+        font-size: 0.96rem;
+      }
+
+      input, select, textarea, button {
+        font: inherit;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fffdfc;
+        padding: 13px 14px;
+        color: var(--text);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: rgba(184, 74, 46, 0.6);
+        box-shadow: 0 0 0 4px rgba(184, 74, 46, 0.08);
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        padding-top: 8px;
+      }
+
+      .check-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .check-item input {
+        width: auto;
+        accent-color: var(--primary);
+      }
+
+      .submit-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 24px;
+      }
+
+      button {
+        border: none;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary) 0%, #d06743 100%);
+        color: white;
+        font-weight: 700;
+        padding: 14px 26px;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(184, 74, 46, 0.24);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 24px rgba(184, 74, 46, 0.28);
+      }
+
+      .note {
+        margin-top: 20px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: #fff5ea;
+        color: var(--muted);
+        border: 1px solid #f6e2c5;
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        form {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="hero">
+          <h1>Food Lovers Yum</h1>
+          <p>Reserve your table, plan your perfect meal, and share your food preferences.</p>
+        </div>
+
+        <form>
+          <div class="grid">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="your@email.com" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+            </div>
+
+            <div class="field">
+              <label for="cuisine">Favorite cuisine</label>
+              <select id="cuisine" name="cuisine">
+                <option value="">Select one</option>
+                <option>Italian</option>
+                <option>Mexican</option>
+                <option>Indian</option>
+                <option>Japanese</option>
+                <option>Chinese</option>
+                <option>American</option>
+                <option>Middle Eastern</option>
+                <option>Vegetarian</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="date">Reservation date</label>
+              <input id="date" name="date" type="date" />
+            </div>
+
+            <div class="field">
+              <label for="time">Preferred time</label>
+              <input id="time" name="time" type="time" />
+            </div>
+
+            <div class="field">
+              <label for="guests">Party size</label>
+              <select id="guests" name="guests">
+                <option value="">Choose party size</option>
+                <option>2 Guests</option>
+                <option>4 Guests</option>
+                <option>6 Guests</option>
+                <option>8 Guests</option>
+                <option>10+ Guests</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="occasion">Occasion</label>
+              <select id="occasion" name="occasion">
+                <option value="">Select occasion</option>
+                <option>Date Night</option>
+                <option>Family Dinner</option>
+                <option>Birthday Celebration</option>
+                <option>Business Lunch</option>
+                <option>Casual Catch-up</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>Dietary preferences</label>
+              <div class="checkbox-group">
+                <label class="check-item"><input type="checkbox" name="diet" value="Vegetarian" /> Vegetarian</label>
+                <label class="check-item"><input type="checkbox" name="diet" value="Vegan" /> Vegan</label>
+                <label class="check-item"><input type="checkbox" name="diet" value="Gluten-Free" /> Gluten-Free</label>
+                <label class="check-item"><input type="checkbox" name="diet" value="Dairy-Free" /> Dairy-Free</label>
+                <label class="check-item"><input type="checkbox" name="diet" value="Halal" /> Halal</label>
+                <label class="check-item"><input type="checkbox" name="diet" value="No nuts" /> No Nuts</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="notes">Special requests</label>
+              <textarea id="notes" name="notes" placeholder="Tell us about allergies, seating preferences, or any special celebration plans..."></textarea>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit">Book My Table</button>
+          </div>
+
+          <div class="note">
+            We’ll confirm your booking details by email or phone shortly after your request is submitted.
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
